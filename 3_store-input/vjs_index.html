@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #app {
+        margin: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="app">
+        <label for="name">Name:</label>
+        <!-- note v-model.lazy this particular setting of "lazy"
+        syncs after each change event instead of each input event. -->
+        <input id="name" type="text" v-model.lazy="name" />
+        <p>{{ name }}</p>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+          data: {
+            name: ''
+          }
+        })
+    </script>
+
+  </body>
+</html>

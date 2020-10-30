@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #app {
+        margin: 50px;
+      }
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="app">
+        <!-- Note how the click logic is handled.
+        @click is an event handler.
+        This is a shorthand for v-on:click=
+
+        The pattern used here is an event passed to ternary operation:
+        1.) The click event is evaluated for 'active' or 'non-active'
+        2.) The aria-pressed is set to true if active, false if not active.
+
+        WAI-ARIA (Accessible Rich Internet Applications or ARIA)
+        is a W3C specification for enhancing accessibility in ways that plain HTML cannot.
+
+        aria-pressed indicates that the button behaves similarly to a checkbox,
+        in that it has its state toggles between being pressed or unpressed.
+       -->
+        <button @click="active = !active" :aria-pressed="active ? 'true' : 'false'">Toggle me</button>
+        <p :class="{ red: active }">Sometimes I need to be styled differently</p>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+    <script>
+    new Vue({
+      el: '#app',
+      data: {
+        active: false
+      }
+      })
+    </script>
+
+  </body>
+</html>

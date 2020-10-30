@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #app {
+        margin: 50px;
+      }
+
+      p {
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="app">
+        <!-- Here the same event handler is used, but the setting is now 'show'
+        we have added the v-if attribrute to the container.
+
+        WAI-ARIA (Accessible Rich Internet Applications or ARIA)
+        is a W3C specification for enhancing accessibility in ways that plain HTML cannot.
+
+        aria-expanded – indicates that the button controls another component in the interface,
+        and relays that component's current state.
+      -->
+        <button @click="show = !show" :aria-expanded="show ? 'true' : 'false'">
+          Toggle Panel
+        </button>
+        <p v-if="show">hello</p>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+    <script>
+    new Vue({
+      el: '#app',
+      data: {
+        show: true
+      }
+    })
+    </script>
+
+  </body>
+</html>

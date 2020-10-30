@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #app {
+        margin: 50px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="app">
+      <label for="thing">Name:</label>
+      <input id="thing" type="text" />
+      <p class="formname"></p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      // this is an alias to $(document).ready(function() {
+      $(function() {
+        //keypress wouldn't include delete key, keyup does. We also query the div id app and find the other elements so that we can reduce lookups
+        $('#app').keyup(function(e) {
+          var formname = $(this).find('.formname');
+          //store in a variable to reduce repetition
+          var n_input = $(this).find('#thing').val();
+          formname.empty();
+          formname.append(n_input);
+        });
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #app {
+        margin: 50px;
+      }
+      p {
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="app">
+      <button type="button" id="toggle" aria-expanded="false">
+        Toggle Panel
+      </button>
+      <p class="hello">hello</p>
+    </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+    $(function() {
+      $('#toggle').on('click', function() {
+        $('.hello').toggle();
+        $(this).attr('aria-expanded', ($(this).attr('aria-expanded') == "false" ? true : false));
+      });
+    });
+    </script>
+
+  </body>
+</html>

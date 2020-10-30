@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body {
+        font-family: 'Bitter', serif;
+      }
+
+      #app {
+        text-align: center;
+        padding: 70px;
+        max-width: 360px;
+        font-size: 16px;
+        margin: 0 auto;
+        display: table;
+        line-height: 2em;
+      }
+
+      label {
+        padding-right: 10px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      button {
+        border: none;
+        color: white;
+        padding: 0.5em 1em;
+        border-radius: 3px;
+        background: orangered;
+      }
+
+      textarea {
+        margin-top: 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="app">
+      <label for="textarea">What is your favorite kind of taco?</label>
+      <textarea id="textarea"></textarea>
+      <br>
+      <button class="button">Let us know!</button>
+    </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+      $(function() {
+        var button = $('.button');
+        var textarea = $('#textarea');
+
+        button.hide();
+        textarea.keyup(function() {
+          if (textarea.val().length > 0) {
+            button.show();
+          } else {
+            button.hide();
+          }
+        })
+      });
+    </script>
+
+  </body>
+</html>

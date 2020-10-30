@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      #body {
+        font-family: 'Bitter', serif;
+      }
+
+      #app {
+        text-align: center;
+        padding: 70px;
+        max-width: 360px;
+        font-size: 16px;
+        margin: 0 auto;
+        display: table;
+        line-height: 2em;
+      }
+
+      label {
+        padding-right: 10px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      button {
+        border: none;
+        color: white;
+        padding: 0.5em 1em;
+        border-radius: 3px;
+        background: orangered;
+      }
+
+      textarea {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="app">
+        <label for="textarea">What is your favorite kind of taco?</label>
+        <textarea id="textarea" v-model="tacos"></textarea>
+        <br>
+        <!--note the attribute v-show which basically functions like an if statement.
+        If tacos becomes populated, the button will show:
+       -->
+        <button v-show="tacos">Let us know!</button>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+    <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          tacos: ''
+        }
+      }
+      })
+    </script>
+
+  </body>
+</html>
